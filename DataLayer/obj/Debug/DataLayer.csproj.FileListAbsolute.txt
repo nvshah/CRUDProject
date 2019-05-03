@@ -1,0 +1,11 @@
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\DataLayer\bin\Debug\DataLayer.dll.config
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\DataLayer\bin\Debug\DataLayer.dll
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\DataLayer\bin\Debug\DataLayer.pdb
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\DataLayer\bin\Debug\AutoMapper.dll
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\DataLayer\bin\Debug\EntityFramework.dll
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\DataLayer\bin\Debug\EntityFramework.xml
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\DataLayer\obj\Debug\DataLayer.dll
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\DataLayer\obj\Debug\DataLayer.pdb
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache

@@ -1,0 +1,175 @@
+﻿@model DataLayer.DTOs.StudentDTO
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    @*<link rel="icon" type="image/png" href="images/icons/favicon.ico" />*@
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/fonts/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/css/main.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/util.css">
+</head>
+<body>
+    <div class="container-contact100">
+
+        <div class="wrap-contact100">
+            <form class="contact100-form validate-form" action="javascript:void(o)">
+                <span class="contact100-form-title">
+                    Student   Details
+                </span>
+
+                @*<label >Id :</label>*@
+                <div class="wrap-input100 validate-input" style="display:none">
+                    <input id="input_id" class="input100" type="text" name="name" placeholder="Name" value="@Model.Id">
+                </div>
+
+                @*<label >Name :</label>*@
+                <div class="wrap-input100 validate-input" data-validate="Enter Your Name">
+                    <input id="input_name" class="input100" type="text" name="name" placeholder="Name" value="@Model.Name">
+                    <span class="focus-input100"></span>
+                </div>
+
+                @*<label>Standard : </label>*@
+                <div class="wrap-input100 validate-input" data-validate="Enter Your Standard">
+                    <input id="input_standard" class="input100" type="text" name="standard" placeholder="Standard" value="@Model.Standard">
+                    <span class="focus-input100"></span>
+                </div>
+
+                @*<label>Phone : </label>*@
+                <div class="wrap-input100 validate-input" data-validate="Please enter your phone">
+                    <input id="input_phone" class="input100" type="text" name="phone" placeholder="Phone" value="@Model.Phone">
+                    <span class="focus-input100"></span>
+                </div>
+
+                @*<label>Dob : </label>*@
+                <div class="wrap-input100 validate-input" data-validate="please enter your date of birth">
+                    <input id="input_dob" class="input100" type="text" name="dob" placeholder="Dob", value="@Html.DisplayFor(m => m.Dob)">
+                    <span class="focus-input100"></span>
+                </div>
+
+                @*<label>Medium : </label>*@
+                <div class="wrap-input100 validate-input" data-validate="Please enter your Medium">
+                    <input id="input_medium" class="input100" type="text" name="medium" placeholder="Medium" value="@Model.Medium">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="container-contact100-form-btn">
+                    <button type="button" class="contact100-form-btn" id="updateBtn">
+                        <span>
+                            <i class="fa fa-paper-plane-o m-r-6" aria-hidden="true"></i>
+                            Update
+                        </span>
+                    </button>
+                    <button type="button" class="contact100-form-btn" id="cancelBtn">
+                        <span>
+                            <i class="fa fa-paper-plane-o m-r-6" aria-hidden="true"></i>
+                            Cancel
+                        </span>
+                    </button>
+                </div>
+                <div>
+                    @Html.ActionLink("Back to List", "Index", "Home")
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <!--===============================================================================================-->
+    <script src="~/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/daterangepicker/moment.min.js"></script>
+    <script src="~/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Scripts/js/main.js"></script>
+
+    <script type="text/javascript">
+
+        $(function () {
+
+            alert(@Model);
+            console.log(@Model);
+        });
+
+        $("#input_dob").focus(function () {
+            if (!$(this).val()) {
+   
+                $(this).prop({ type: "date" })
+            }
+            else
+            {
+                $(this).prop({ type: "text" })
+            }
+        });
+
+
+        $("#input_dob").blur(function () {
+            if (!$(this).val()) {
+                $(this).prop({ type: "text" })
+            }
+            else {
+                $(this).prop({ type: "text" })
+            }
+        });
+
+        $("#input_dob").mouseover(function () {
+            if (!$(this).val()) {
+                $(this).prop({ type: "date" })
+            }
+            
+        });
+
+        
+
+        $("#input_dob").change(function () {
+            if (!$(this).val()) {
+                $(this).prop({ type: "text" })
+            }
+            else {
+                $(this).prop({ type: "text" })
+            }
+        });
+
+        //$("#input_dob").mouseout(function () {
+        //    if (!$(this).val()) {
+        //        $(this).prop({ type: "date" })
+        //    }
+        //    else {
+        //        $(this).prop({ type: "text" })
+        //    }
+        //});
+    </script>
+</body>
+</html>
