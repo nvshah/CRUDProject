@@ -7,7 +7,7 @@ namespace DataLayer
     public class StudentData
     {
         private TutuorDbEntities dbContext;
-        
+
         public StudentData()
         {
             dbContext = new TutuorDbEntities();
@@ -36,7 +36,7 @@ namespace DataLayer
         {
             Student_2 updatedStudent = (Student_2)dbContext.Student_2.SingleOrDefault(student => student.Id == studentRecord.Id);
 
-            if(updatedStudent == null)
+            if (updatedStudent == null)
             {
                 return false;
             }
@@ -63,6 +63,41 @@ namespace DataLayer
             dbContext.Student_2.Remove(deletedStudent);
             dbContext.SaveChanges();
             return true;
+
+        }
+
+        public List<StudentDTO> ViewStudents()
+        {
+            TableMapper<Student_2, StudentDTO> mapObject = new TableMapper<Student_2, StudentDTO>();
+            List<StudentDTO> students = new List<StudentDTO>();
+
+            foreach (var student in dbContext.Student_2.ToList())
+            {
+                students.Add(mapObject.Translate(student));
+            }
+            //if (students.Count == 0)
+            //{
+            //    return null;
+            //}
+            return students;
+
+        }
+
+        public List<StudentDTO> ViewStudentsByStandard(int std)
+        {
+            TableMapper<Student_2, StudentDTO> mapObject = new TableMapper<Student_2, StudentDTO>();
+            List<StudentDTO> students = new List<StudentDTO>();
+
+
+            foreach (var student in dbContext.Student_2.Where(student => student.Standard == std).ToList())
+            {
+                students.Add(mapObject.Translate(student));
+            }
+            //if (students.Count == 0)
+            //{
+            //    return null;
+            //}
+            return students;
 
         }
 

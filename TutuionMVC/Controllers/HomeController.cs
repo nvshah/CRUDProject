@@ -12,13 +12,20 @@ namespace TutuionMVC.Controllers
         
         public ActionResult Index()
         {
-            TutuorDbEntities db = new TutuorDbEntities();
-            List<Student_2> students = db.Student_2.ToList();
-            if (students.Count == 0)
-            {
-                students.Add(new Student_2());
-            }
-            return View(students);
+            //TutuorDbEntities db = new TutuorDbEntities();
+            //List<Student_2> students = db.Student_2.ToList();
+            //if (students.Count == 0)
+            //{
+            //    students.Add(new Student_2());
+            //}
+            return View();
+        }
+
+        //GET: Home/Display/page
+        public ActionResult Display(string page)
+        {
+            var result = new FilePathResult("~/Views/Home/"+ page, "text/html");
+            return result;
         }
 
         public ActionResult About()

@@ -173,6 +173,17 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\main.css" />
     <Content Include="Content\css\util.css" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="Content\fonts\iconic\css\material-design-iconic-font.css" />
+    <Content Include="Content\fonts\iconic\css\material-design-iconic-font.min.css" />
+    <Content Include="Content\fonts\iconic\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="Content\fonts\JosefinSans\OFL.txt" />
+    <Content Include="Content\fonts\source-sans-pro\OFL.txt" />
+    <Content Include="Content\fonts\ubuntu\UFL.txt" />
+    <Content Include="Content\Login-Css\LoginPage.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fonts\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="fonts\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
@@ -187,6 +198,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\BackDetect\javascripts\scale.fix.js" />
+    <Content Include="Scripts\BackDetect\jquery.backDetect.js" />
+    <Content Include="Scripts\BackDetect\jquery.backDetect.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -259,6 +273,73 @@
     <Content Include="fonts\fonts\ubuntu\Ubuntu-Medium.ttf" />
     <Content Include="fonts\fonts\ubuntu\Ubuntu-MediumItalic.ttf" />
     <Content Include="fonts\fonts\ubuntu\Ubuntu-Regular.ttf" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\core.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\list.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\path.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="Content\fonts\iconic\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="Content\fonts\iconic\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="Content\fonts\iconic\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="Content\fonts\iconic\fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="Content\fonts\JosefinSans\JosefinSans-Bold.ttf" />
+    <Content Include="Content\fonts\JosefinSans\JosefinSans-BoldItalic.ttf" />
+    <Content Include="Content\fonts\JosefinSans\JosefinSans-Italic.ttf" />
+    <Content Include="Content\fonts\JosefinSans\JosefinSans-Light.ttf" />
+    <Content Include="Content\fonts\JosefinSans\JosefinSans-LightItalic.ttf" />
+    <Content Include="Content\fonts\JosefinSans\JosefinSans-Regular.ttf" />
+    <Content Include="Content\fonts\JosefinSans\JosefinSans-SemiBold.ttf" />
+    <Content Include="Content\fonts\JosefinSans\JosefinSans-SemiBoldItalic.ttf" />
+    <Content Include="Content\fonts\JosefinSans\JosefinSans-Thin.ttf" />
+    <Content Include="Content\fonts\JosefinSans\JosefinSans-ThinItalic.ttf" />
+    <Content Include="Content\fonts\source-sans-pro\SourceSansPro-Black.ttf" />
+    <Content Include="Content\fonts\source-sans-pro\SourceSansPro-BlackItalic.ttf" />
+    <Content Include="Content\fonts\source-sans-pro\SourceSansPro-Bold.ttf" />
+    <Content Include="Content\fonts\source-sans-pro\SourceSansPro-BoldItalic.ttf" />
+    <Content Include="Content\fonts\source-sans-pro\SourceSansPro-ExtraLight.ttf" />
+    <Content Include="Content\fonts\source-sans-pro\SourceSansPro-ExtraLightItalic.ttf" />
+    <Content Include="Content\fonts\source-sans-pro\SourceSansPro-Italic.ttf" />
+    <Content Include="Content\fonts\source-sans-pro\SourceSansPro-Light.ttf" />
+    <Content Include="Content\fonts\source-sans-pro\SourceSansPro-LightItalic.ttf" />
+    <Content Include="Content\fonts\source-sans-pro\SourceSansPro-Regular.ttf" />
+    <Content Include="Content\fonts\source-sans-pro\SourceSansPro-SemiBold.ttf" />
+    <Content Include="Content\fonts\source-sans-pro\SourceSansPro-SemiBoldItalic.ttf" />
+    <Content Include="Content\fonts\ubuntu\Ubuntu-Bold.ttf" />
+    <Content Include="Content\fonts\ubuntu\Ubuntu-BoldItalic.ttf" />
+    <Content Include="Content\fonts\ubuntu\Ubuntu-Italic.ttf" />
+    <Content Include="Content\fonts\ubuntu\Ubuntu-Light.ttf" />
+    <Content Include="Content\fonts\ubuntu\Ubuntu-LightItalic.ttf" />
+    <Content Include="Content\fonts\ubuntu\Ubuntu-Medium.ttf" />
+    <Content Include="Content\fonts\ubuntu\Ubuntu-MediumItalic.ttf" />
+    <Content Include="Content\fonts\ubuntu\Ubuntu-Regular.ttf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -267,6 +348,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\js\Login.js" />
     <Content Include="Scripts\js\main.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
@@ -301,6 +383,7 @@
     <Content Include="vendor\select2\select2.js" />
     <Content Include="vendor\select2\select2.min.css" />
     <Content Include="vendor\select2\select2.min.js" />
+    <Content Include="Views\Home\Option.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -323,6 +406,8 @@
     <Content Include="vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="vendor\bootstrap\css\bootstrap.min.css.map" />
     <Content Include="Views\CRUDApi\Edit.cshtml" />
+    <Content Include="Views\CRUDApi\Index.cshtml" />
+    <Content Include="Views\CRUDApi\Index1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -344,6 +429,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
+      <Project>{cea85211-ffce-47ce-b4f8-5621e34ecbb2}</Project>
+      <Name>BusinessLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataLayer\DataLayer.csproj">
       <Project>{370216a1-434f-4f03-9e55-b3eb9b6a0134}</Project>
       <Name>DataLayer</Name>

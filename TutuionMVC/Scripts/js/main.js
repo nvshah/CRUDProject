@@ -6,6 +6,7 @@
     /*==================================================================
     [ Validate ]*/
     var input = $('.validate-input .input100');
+    var prev_std = 0;
 
     //Added
     var oldName = $('#input_name').val();
@@ -147,7 +148,9 @@
         _student.Name = name.val();
         _student.Standard = standard.val();
         _student.Phone = phone.val();
-        _student.Dob = dob.val();
+        //_student.Dob = dob.val(); 
+        var datearr = dob.val().split('-');
+        _student.Dob = datearr[1] + '-' + datearr[0] + '-' + datearr[2];
         _student.Medium = medium.val();
 
         // Call Web API to Insert a record of Student
@@ -160,12 +163,16 @@
             success: function (success) {
                 if (success == true) {
                     alert("Record Inserted Successfully");
+                    prev_std = _student.Standard;
 
                     name.val("");
                     standard.val("");
                     phone.val("");
                     dob.val("");
                     medium.val("");
+
+                    ////redirect to Index Page After Updation
+                    //window.location.href = "/CRUDApi/Index1?std=" + _student.Standard;
                 }
             },
             error: function (request, message, error) {
@@ -174,6 +181,15 @@
         });
         
     }
+
+    //Back to List Click Handler
+    $('.BtoL').on('click', function () {
+        window.location.href = "/CRUDApi/Index1"
+        if (prev_std != 0)
+        {
+            localStorage.setItem("std", prev_std);
+        }
+    });
 
     function UpdateRecords() {
 
@@ -189,7 +205,8 @@
         _student.Name = name.val();
         _student.Standard = standard.val();
         _student.Phone = phone.val();
-        _student.Dob = dob.val();
+        var datearr = dob.val().split('-');
+        _student.Dob = datearr[1] + '-' + datearr[0] + '-' + datearr[2];
         _student.Medium = medium.val();
 
         // Call Web API to Update a record of Student
@@ -202,6 +219,7 @@
             success: function (success) {
                 if (success == true) {
                     alert("Record Updated Successfully");
+                    prev_std = _student.Standard;
 
                     name.val("");
                     standard.val("");
@@ -210,8 +228,10 @@
                     medium.val("");
 
                     //redirect to Index Page After Updation
-                    window.location.href = "/";
-
+                    window.location.href = "/CRUDApi/Index1";
+                    if (prev_std != 0) {
+                        localStorage.setItem("std", prev_std);
+                    }
                 }
                 else
                 {

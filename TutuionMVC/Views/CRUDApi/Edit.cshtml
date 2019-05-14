@@ -31,6 +31,72 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="~/Content/css/main.css">
     <link rel="stylesheet" type="text/css" href="~/Content/css/util.css">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker3.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+    
+    <style>
+
+        /* Css for Dropdown on hover over Medium */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 50%;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            /*background: #fff;*/
+            border-radius: 10px;
+            font-family: Ubuntu-Bold;
+            font-size: 12px;
+            color: #8f8fa1;
+            line-height: 1.2;
+        }
+
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        /* Css for Dropdown on hover over Medium Ended */
+
+        .label-value{
+            display:flex;
+        }
+
+        .label-value label {
+            align-self: center;
+            width: 105px;
+            font-family: 'Segoe UI Light';
+            font-size: 16px;
+            color: navy;
+            text-align:end; 
+            padding-right:10px;
+            visibility : hidden;    
+        }
+
+        .label-value:hover >label{
+            visibility:visible;
+        }
+        .container-contact100-form-btn{
+            justify-content:flex-end;
+        }
+    </style>
 </head>
 <body>
     <div class="container-contact100">
@@ -41,39 +107,56 @@
                     Student   Details
                 </span>
 
-                @*<label >Id :</label>*@
-                <div class="wrap-input100 validate-input" style="display:none">
-                    <input id="input_id" class="input100" type="text" name="name" placeholder="Name" value="@Model.Id">
+                <div>
+                    <div class="wrap-input100 validate-input" style="display:none">
+                        <input id="input_id" class="input100" type="text" name="name" placeholder="Name" value="@Model.Id">
+                    </div>
                 </div>
 
-                @*<label >Name :</label>*@
-                <div class="wrap-input100 validate-input" data-validate="Enter Your Name">
-                    <input id="input_name" class="input100" type="text" name="name" placeholder="Name" value="@Model.Name">
-                    <span class="focus-input100"></span>
+                <div class="label-value">
+                    <label>Name :</label>
+                    <div class="wrap-input100 validate-input" data-validate="Enter Your Name">
+                        <input id="input_name" class="input100" type="text" name="name" placeholder="Name" value="@Model.Name">
+                        <span class="focus-input100"></span>
+                    </div>
                 </div>
 
-                @*<label>Standard : </label>*@
-                <div class="wrap-input100 validate-input" data-validate="Enter Your Standard">
-                    <input id="input_standard" class="input100" type="text" name="standard" placeholder="Standard" value="@Model.Standard">
-                    <span class="focus-input100"></span>
+                <div class="label-value">
+                    <label>Standard : </label>
+                    <div class="wrap-input100 validate-input" data-validate="Enter Your Standard">
+                        <input id="input_standard" class="input100" type="text" name="standard" placeholder="Standard" value="@Model.Standard">
+                        <span class="focus-input100"></span>
+                    </div>
                 </div>
 
-                @*<label>Phone : </label>*@
-                <div class="wrap-input100 validate-input" data-validate="Please enter your phone">
-                    <input id="input_phone" class="input100" type="text" name="phone" placeholder="Phone" value="@Model.Phone">
-                    <span class="focus-input100"></span>
+                <div class="label-value">
+                    <label>Phone : </label>
+                    <div class="wrap-input100 validate-input" data-validate="Please enter your phone">
+                        <input id="input_phone" class="input100" type="text" name="phone" placeholder="Phone" value="@Model.Phone">
+                        <span class="focus-input100"></span>
+                    </div>
                 </div>
 
-                @*<label>Dob : </label>*@
-                <div class="wrap-input100 validate-input" data-validate="please enter your date of birth">
-                    <input id="input_dob" class="input100" type="text" name="dob" placeholder="Dob", value="@Html.DisplayFor(m => m.Dob)">
-                    <span class="focus-input100"></span>
+                <div class="label-value">
+                    <label>Dob : </label>
+                    <div class="wrap-input100 validate-input" data-validate="please enter your date of birth">
+                        <input id="input_dob" class="input100" type="text" name="dob" placeholder="Dob" , value="@Html.DisplayFor(m => m.Dob)">
+                        <span class="focus-input100"></span>
+                    </div>
                 </div>
 
-                @*<label>Medium : </label>*@
-                <div class="wrap-input100 validate-input" data-validate="Please enter your Medium">
-                    <input id="input_medium" class="input100" type="text" name="medium" placeholder="Medium" value="@Model.Medium">
-                    <span class="focus-input100"></span>
+                <div class="label-value">
+                    <label>Medium : </label>
+                    <div class="wrap-input100 validate-input" data-validate="Please enter your Medium">
+                        <div class="dropdown">
+                            <input id="input_medium" class="input100" type="text" name="medium" placeholder="Medium" value="@Model.Medium" readonly>
+                            <div class="dropdown-content">
+                                <a href="javascript:;" name="eng">Eng</a>
+                                <a href="javascript:;" name="guj">Guj</a>
+                            </div>
+                        </div>
+                        <span class="focus-input100"></span>
+                    </div>
                 </div>
 
                 <div class="container-contact100-form-btn">
@@ -83,6 +166,7 @@
                             Update
                         </span>
                     </button>
+                    &nbsp;&nbsp;
                     <button type="button" class="contact100-form-btn" id="cancelBtn">
                         <span>
                             <i class="fa fa-paper-plane-o m-r-6" aria-hidden="true"></i>
@@ -91,7 +175,8 @@
                     </button>
                 </div>
                 <div>
-                    @Html.ActionLink("Back to List", "Index", "Home")
+                    @*@Html.ActionLink("Back to List", "Index1", "CRUDApi")*@
+                    <a class="BtoL" href="javascript:;">Back to List</a>
                 </div>
             </form>
         </div>
@@ -115,52 +200,69 @@
     <!--===============================================================================================-->
     <script src="~/Scripts/js/main.js"></script>
 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    @*<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>*@
+
+        
     <script type="text/javascript">
 
         $(function () {
-
-            alert(@Model);
-            console.log(@Model);
+            $("#input_dob").datepicker({
+                format: 'dd-mm-yyyy',
+                setDate: $(this).val()                
+            });
         });
 
-        $("#input_dob").focus(function () {
-            if (!$(this).val()) {
+      
+        $('.dropdown-content a').on('click', function () {
+            let value = $(this).html();
+            $('.dropdown input').val(value);
+        });
+
+        $('.BtoL').on('click', function () {
+            //window.location.href = "/CRUDApi/Index1/?std=" + $('#input_standard').val();
+            window.location.href = "/CRUDApi/Index1/";
+            localStorage.setItem("std", $('#input_standard').val());
+        });
+
+        //$("#input_dob").focus(function () {
+        //    if (!$(this).val()) {
    
-                $(this).prop({ type: "date" })
-            }
-            else
-            {
-                $(this).prop({ type: "text" })
-            }
-        });
+        //        $(this).prop({ type: "date" })
+        //    }
+        //    else
+        //    {
+        //        $(this).prop({ type: "text" })
+        //    }
+        //});
 
 
-        $("#input_dob").blur(function () {
-            if (!$(this).val()) {
-                $(this).prop({ type: "text" })
-            }
-            else {
-                $(this).prop({ type: "text" })
-            }
-        });
+        //$("#input_dob").blur(function () {
+        //    if (!$(this).val()) {
+        //        $(this).prop({ type: "date" })
+        //    }
+        //    else {
+        //        $(this).prop({ type: "text" })
+        //    }
+        //});
 
-        $("#input_dob").mouseover(function () {
-            if (!$(this).val()) {
-                $(this).prop({ type: "date" })
-            }
+        //$("#input_dob").mouseover(function () {
+        //    if (!$(this).val()) {
+        //        $(this).prop({ type: "date" })
+        //    }
             
-        });
+        //});
 
         
 
-        $("#input_dob").change(function () {
-            if (!$(this).val()) {
-                $(this).prop({ type: "text" })
-            }
-            else {
-                $(this).prop({ type: "text" })
-            }
-        });
+        //$("#input_dob").change(function () {
+        //    if (!$(this).val()) {
+        //        $(this).prop({ type: "text" })
+        //    }
+        //    else {
+        //        $(this).prop({ type: "text" })
+        //    }
+        //});
 
         //$("#input_dob").mouseout(function () {
         //    if (!$(this).val()) {

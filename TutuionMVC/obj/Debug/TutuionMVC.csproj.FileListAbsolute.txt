@@ -79,3 +79,5 @@ C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\TutuionMVC\b
 C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\TutuionMVC\bin\Microsoft.AI.Web.xml
 C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\TutuionMVC\obj\Debug\TutuionMVC.dll
 C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\TutuionMVC\obj\Debug\TutuionMVC.pdb
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\TutuionMVC\bin\BusinessLayer.dll
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\TutuionMVC\bin\BusinessLayer.pdb

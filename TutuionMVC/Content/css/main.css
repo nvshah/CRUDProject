@@ -102,6 +102,9 @@ textarea:-moz-placeholder { color: #bdbdd3;}
 textarea::-moz-placeholder { color: #bdbdd3;}
 textarea:-ms-input-placeholder { color: #bdbdd3;}
 
+
+/*-------------------------added*/
+
 /*---------------------------------------------*/
 button {
 	outline: none !important;
@@ -259,13 +262,15 @@ textarea.input100 {
   justify-content: center;
   align-items: center;
   padding: 0 20px;
-  min-width: 150px;
-  height: 62px;
+  /*min-width: 150px;
+  height: 62px;*/
+  min-width : 50px;
+  height : 40px;
   background-color: transparent;
   border-radius: 31px;
 
   font-family: Ubuntu-Bold;
-  font-size: 16px;
+  font-size: 12px;
   color: #fff;
   line-height: 1.2;
   text-transform: uppercase;

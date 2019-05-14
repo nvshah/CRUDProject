@@ -1,5 +1,8 @@
-﻿using DataLayer;
+﻿using BusinessLayer;
+using DataLayer;
 using DataLayer.DTOs;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,39 +15,149 @@ namespace TutuionMVC.Controllers.API
     [RoutePrefix("api/CRUD")]
     public class CRUDController : ApiController
     {
-        StudentData data;
+        TutionBiz biz;
 
         public CRUDController()
-        {
-            data = new StudentData();
+        { 
+            biz = new TutionBiz();
         }
 
         [HttpPost]
         [Route("Insert")]
-        public bool InsertStudent(StudentDTO studentRecord)
+        public IHttpActionResult InsertStudent([FromBody]StudentDTO studentRecord)
         {
-            bool status = false;
-            status = data.InsertData(studentRecord);
-            return status;
+            try
+            {
+                if (studentRecord != null)
+                {
+                    var status = biz.InsertStudentRecord(studentRecord);
+                    return Ok(status);
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        [HttpPost]
+        [Route("InsertUser")]
+        public IHttpActionResult InsertUserRecord([FromBody]UserRecord userRecord)
+        {
+            try
+            {
+                if (userRecord != null)
+                {
+                    var status = biz.InsertUserRecord(userRecord);
+                    return Ok(status);
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        [HttpPost]
+        [Route("AuthenticateUser")]
+        public IHttpActionResult AuthenticateUserRecord([FromBody]object userValidateRecord)
+        {
+            try
+            {
+                if(userValidateRecord != null)
+                {
+                    var status = biz.ValidateAdminByUsernameAndPassword(userValidateRecord);
+                    return Ok(status);
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         [HttpPost]
         [Route("Update")]
-        public bool UpdateStudent(StudentDTO studentRecord)
+        public IHttpActionResult UpdateStudent(StudentDTO studentRecord)
         {
-            bool status = false;
-            status = data.UpdateData(studentRecord);
-            return status;
+            try
+            {
+                if(studentRecord != null)
+                {
+                    var status = biz.UpdateStudentRecord(studentRecord);
+                    return Ok(status);
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
         
         [HttpGet]
         [Route("Delete/{id}")]
-        public HttpResponseMessage DeleteStudent([FromUri]int id)
+        public IHttpActionResult DeleteStudent([FromUri]int id)
         {
-            bool status = false;
-            status = data.DeleteData(id);
-            return Request.CreateResponse(HttpStatusCode.OK,new { status = status });
+            try
+            {
+                if (id != 0)
+                {
+                    var status = biz.DeleteStudentRecord(id);
+                    return Ok(status);
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
+        [HttpGet]
+        [Route("ViewAll")]
+        public IHttpActionResult ViewAllStudent()
+        {
+            try
+            {
+                return Ok(biz.ViewStudentRecords());
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpGet]
+        [Route("ViewByStandard/{std}")]
+        public IHttpActionResult GetStudentsByStandard([FromUri]int std)
+        {
+            try
+            {
+                return Ok(biz.ViewStudentRecordsByStandard(std));
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
     }
 }
