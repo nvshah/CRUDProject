@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title> Actions </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <style>
+        .container{            
+            justify-content:center;
+            text-align:center
+        }
+        .btn{            
+            margin:5px;
+            margin-top:20px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container" >
+        <h2>Welcome To Class DashBoard</h2>
+        <button id="ViewBtn" type="button" class="btn btn-primary">View Records</button>
+        <button id="AddMarksBtn"type="button" class="btn btn-primary">Add Marks</button>
+    </div>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
+    <script type="text/javascript">
+        $('#ViewBtn').on('click', function () {
+            localStorage.setItem("std", '0');
+            window.location.href = "/CRUDApi/Index1";
+        });
+    </script>
+</body>
+</html>

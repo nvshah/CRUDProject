@@ -1,0 +1,378 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Operation</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+    <style>
+        .tableRecords {
+            /*display: none;*/
+            margin-top: 50px;
+        }
+
+        #txtStd {
+            width: 150px;
+        }
+
+        .input-operation {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .errorMessage {
+            margin-top: 5px;
+            color: #999;
+            max-height: 200px;
+            transition: 0.28s;
+            overflow: hidden;
+            color: red;
+            font-style: italic;
+            display: none;
+        }
+        #tableStudents{
+            /*table-layout: fixed;*/
+            /*width:100%;*/
+        }
+        .loading{
+            display:none;
+        }
+        /*.input-operation > div:last-child{
+            margin-left:auto;
+        }*/
+    </style>
+</head>
+
+<body>
+
+    <h2>Index</h2>
+    <a href="/Home/Display?page=Option.html"> Back </a> 
+    @*<p>
+            @Html.ActionLink("Create New", "Create", "CRUDApi")
+        </p>*@
+
+    <div class="container">
+        <div class="loading" style="text-align:center">
+            <img src="~/Content/Gifs/ajax-loader.gif" />
+        </div>
+        <div class="input-operation">
+            <div class="input-group" id="txtStd">
+                <input type="number" min=1 max=12 class="form-control" placeholder="Standard" name="Standard" />
+                <div class="input-group-btn">
+                    <button id="stdBtn" class="btn btn-default"><i class="glyphicon glyphicon-check"></i></button>
+                </div>  
+            </div>
+            <div>
+                <button id="AddRecord" class="btn btn-primary">
+                    Add Record
+                </button>
+            </div>
+        </div>
+        <p class="errorMessage">
+            Enter Std in (1,12)
+        </p>
+        <div class="tableRecords">
+            <table id="tableStudents" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th style="display:none">Id</th>
+                        <th>Name</th>
+                        <th style="display:none">Standard</th>
+                        <th>Phone</th>
+                        <th>Dob</th>
+                        <th>Medium</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="display:none" id="input_id"><span>&nbsp;</span></td>
+                        <td id="input_name" width="30%"><span>&nbsp;</span></td>
+                        <td id="input_standard" style="display:none"><span>&nbsp;</span></td>
+                        <td id="input_phone"><span>&nbsp;</span></td>
+                        <td id="input_dob"><span>&nbsp;</span></td>
+                        <td id="input_medium"><span>&nbsp;</span></td>
+                        <td>
+                            @*<@Html.ActionLink("Edit", "Edit", "CRUDApi",new { _id = student.Id },null) |*@
+                            <a class="Edit btn btn-primary" href="javascript:;">Edit</a>
+                            <a class="Delete btn btn-success" href="javascript:;">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
+    <script type="text/javascript"
+            src="http://code.jquery.com/jquery-latest.js">
+    </script>
+
+    @*script for Converting Date Format*@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
+    @*script for Converting Date Format Ended*@
+
+    @*Script for Back button click Detecting*@
+    <script src="~/Scripts/BackDetect/jquery.backDetect.js"></script>
+    <script src="~/Scripts/BackDetect/jquery.backDetect.min.js"></script>
+    @*Script for Back button click Detecting Ended*@
+
+
+
+    <script type="text/javascript">
+        $(function () {
+            @*var std = parseInt(@ViewBag.standard)*@
+            //var std = localStorage.getItem("std");
+            //alert(std);
+            //Remove the dummy row if data present.
+           
+
+            if ($("#tableStudents tr").length > 2) {
+                //$("#tableStudents tr:eq(1)").remove();
+            }
+            else {
+                var row = $("#tableStudents tr:last-child");
+                if (row.find("span").html() == '&nbsp;') {
+                    row.find(".Edit").hide();
+                    row.find(".Delete").hide();
+                }
+            }
+            if (performance.navigation.type == 2 || performance.navigation.type == 1 || performance.navigation.type == 0) {
+                var std = localStorage.getItem("std");
+
+                if (std != 0) {
+                    $('#txtStd input').val(std);
+                }
+                //List Down All Entries if Std value is Present
+                if (std > 0 && std < 13) {
+                    $('.loading').show();
+                    PopulateTable(std);
+                    $('.loading').hide();
+                }
+            }
+        });
+
+        //$(window).on('beforeunload', function () {
+        //    localStorage.setItem("std", $('#input_standard').val());
+        //});
+
+        //window.onbeforeunload = function () {
+        //    localStorage.setItem("std", $('#input_standard').val());
+        //    return confirm('Are you Sure');
+        //}
+
+
+        //Function Added to Post Data To Action via Controller and Redirect To that Page
+        $.extend(
+            {
+                redirectPost: function (location, args) {
+                    var form = '';
+                    $.each(args, function (key, value) {
+                        form += '<input type="hidden" name="' + key + '" value="' + value + '">';
+                    });
+                    $('<form action="' + location + '" method="POST">' + form + '</form>').appendTo('body').submit();
+                }
+            });
+
+        //Edit Event Handler
+        $("body").on("click", "#tableStudents .Edit", function () {
+            var row = $(this).closest("tr");   //$(this) -> current element that clicked
+
+            var values = [];
+            $("td", row).each(function () {
+                values.push($(this).text());
+            });
+
+            //var values = ["10", "dsad", "20", "dsda", "ada", "jsadsa"];
+            //alert(values);
+
+            var student = {};
+            student.Id = values[0];
+            student.Name = values[1];
+            student.Standard = values[2];
+            student.Phone = values[3];
+            student.Dob = values[4];
+            var datearr = student.Dob.split('-');
+            student.Dob = datearr[1] + '-' + datearr[0] + '-' + datearr[2];
+            student.Medium = values[5];
+
+            //console.log(student);
+
+            $.redirectPost('/CRUDApi/Edit', student);
+        });
+
+        //Delete event handler.
+        $("body").on("click", "#tableStudents .Delete", function () {
+            if (confirm("Do you want to delete this row?")) {
+                var row = $(this).closest("tr");
+
+
+                var _Id = row.find("#input_id").text();
+                var urlString = "/api/CRUD/Delete/" + _Id
+                $.ajax({
+                    type: "GET",
+                    url: urlString,
+                    dataType: "json",
+                    success: function (data) {
+                        if (data == true) {
+                            if ($("#tableStudents tr").length > 2) {
+                                row.remove();
+                            }
+                            else {
+                                row.find(".Edit").hide();
+                                row.find(".Delete").hide();
+                                row.find("span").html('&nbsp;');
+                            }
+                            //row.remove();
+                            //setTimeout(function () {// wait for 5 secs(2)
+                            //    location.reload(); // then reload the page.(3)
+                            //}, 2000);
+                        }
+                        else {
+                            alert('Cannot Delete this Row , try later #');
+                        }
+                    },
+                    error:function (request, message, error) {
+                        handleException(request, message, error);
+                    }
+                });
+            }
+        });
+
+        //Handle Error and display if occurs via inserting
+        function handleException(request, message,
+            error) {
+            var msg = "";
+            msg += "Code: " + request.status + "\n";
+            msg += "Text: " + request.statusText + "\n";
+            if (request.responseJSON != null) {
+                msg += "Message" +
+                    request.responseJSON.Message + "\n";
+            }
+            alert(msg);
+        }
+
+        //On Add Button Click
+        $('#AddRecord').on('click', function () {
+            window.location.href = "/CRUDApi/Create";
+        });
+
+        //On Std Button Click
+        $('#stdBtn').on('click', function () {
+           
+
+            $(this).prop('disabled',true);
+            var input = $('.input-operation input');
+            var input_val = input.val();
+
+            if (input_val > 0 && input_val < 13) {
+                input.css('borderColor', '');
+                $('.errorMessage').css("display", "none");
+                $('.tableRecords').css("display", "block");
+
+                localStorage.setItem("std", input_val);
+
+                if ($('#tableStudents tr:last-child #input_standard').find('span').html() != input_val) {
+                    $('.loading').show();
+                    PopulateTable(input_val);
+                    $('.loading').hide();
+
+                    //$('.loading').prop('visibility','hidden');
+                }
+
+            }
+            else {
+                input.css("borderColor", "red");
+                $('.errorMessage').css("display", "block");
+                //$('.tableRecords').css("display", "none");
+            }
+            $(this).prop('disabled', false);
+        });
+
+        //Append Row to Last of table
+        function AppendRow(row, Id, Name, Standard, Phone, Dob, Medium) {
+            //Bind StudentId.
+            $("#input_id", row).find("span").html(Id);
+
+            //Bind Name. $(expr, context) : .name in row context only
+            $("#input_name", row).find("span").html(Name);
+
+            //Bind Standard.
+            $("#input_standard", row).find("span").html(Standard);
+
+            //Bind Phone
+            $("#input_phone", row).find("span").html(Phone);
+
+            //Bind Dob
+            $("#input_dob", row).find("span").html(Dob);
+
+            //Bind Medium
+            $("#input_medium", row).find("span").html(Medium);
+
+            row.find(".Edit").show();
+            row.find(".Delete").show();
+
+            $("#tableStudents tbody").append(row);
+        }
+
+        //Add event handler.
+        function PopulateTable(std) {
+
+            //alert(std);
+            var urlForViewByStd = "/api/CRUD/ViewByStandard/" + std;
+
+            {
+
+                //Remove Rows Of Previous Standards
+                $('#tableStudents tbody').find("tr:gt(0)").remove();
+                var row = $("#tableStudents tbody tr:last-child");
+                row.find(".Edit").hide();
+                row.find(".Delete").hide();
+                row.find("span").html('&nbsp;');
+
+                //Call Web Api to fetch records for new Standard
+                $.ajax({
+                    type: "GET",
+                    url: urlForViewByStd,
+                    dataType: "json",
+                    success: function (data) {
+                        var row = $("#tableStudents tbody tr:last-child");
+                        //if dummy row is present
+                        if (row.find('span').eq(0).html() == "&nbsp;") {
+                            //alert('No Row is Present');
+                        }
+                        else { // if dummy row is not there then create new row
+                            row = row.clone();
+                            //alert('already Row is Present');
+                        }
+
+                        //Append Records From Json Array recieve from call
+                        $.each(data, function () {
+                            //alert(this.Id);
+                            //var date = this.Dob.substring(0, 10);
+                            var date = moment(this.Dob).format("DD-MM-YYYY") //"2013-03-10"
+                            //alert(date);
+                            AppendRow(row, this.Id, this.Name, this.Standard, this.Phone, date, this.Medium);
+                            row = row.clone();
+                        });
+                    }
+                });
+            }
+
+        }
+
+    </script>
+
+
+</body>
+</html>
