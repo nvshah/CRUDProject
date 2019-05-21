@@ -183,6 +183,8 @@
     <Content Include="Content\fonts\JosefinSans\OFL.txt" />
     <Content Include="Content\fonts\source-sans-pro\OFL.txt" />
     <Content Include="Content\fonts\ubuntu\UFL.txt" />
+    <Content Include="Content\Gifs\ajax-loader%281%29.gif" />
+    <Content Include="Content\Gifs\ajax-loader.gif" />
     <Content Include="Content\Login-Css\LoginPage.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fonts\font-awesome-4.7.0\css\font-awesome.css" />
@@ -340,6 +342,7 @@
     <Content Include="Content\fonts\ubuntu\Ubuntu-Medium.ttf" />
     <Content Include="Content\fonts\ubuntu\Ubuntu-MediumItalic.ttf" />
     <Content Include="Content\fonts\ubuntu\Ubuntu-Regular.ttf" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

@@ -7,14 +7,15 @@
       <Schema Namespace="TutuorDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Student_2">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="Student_ID" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Student_ID" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Standard" Type="int" Nullable="false" />
           <Property Name="Phone" Type="varchar" MaxLength="15" Nullable="false" />
           <Property Name="Dob" Type="date" />
-          <Property Name="Medium" Type="varchar" MaxLength="10" />
+          <Property Name="Medium" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Year" Type="varchar" MaxLength="4" Nullable="false" />
         </EntityType>
         <EntityContainer Name="TutuorDbModelStoreContainer">
           <EntitySet Name="Student_2" EntityType="Self.Student_2" Schema="dbo" store:Type="Tables" />
@@ -26,14 +27,15 @@
       <Schema Namespace="TutuorDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Student_2">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="Student_ID" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Student_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Standard" Type="Int32" Nullable="false" />
           <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Dob" Type="DateTime" Precision="0" />
-          <Property Name="Medium" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Medium" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Year" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityContainer Name="TutuorDbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Student_2" EntityType="Self.Student_2" />
@@ -47,12 +49,13 @@
           <EntitySetMapping Name="Student_2">
             <EntityTypeMapping TypeName="TutuorDbModel.Student_2">
               <MappingFragment StoreEntitySet="Student_2">
-                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Student_ID" ColumnName="Student_ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Standard" ColumnName="Standard" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Dob" ColumnName="Dob" />
                 <ScalarProperty Name="Medium" ColumnName="Medium" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

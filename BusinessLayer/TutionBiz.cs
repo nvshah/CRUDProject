@@ -43,7 +43,7 @@ namespace BusinessLayer
             return status;
         }
 
-        public bool DeleteStudentRecord(int id)
+        public bool DeleteStudentRecord(string id)
         {
             var status = data.DeleteData(id);
             return status;
@@ -55,9 +55,9 @@ namespace BusinessLayer
             return students;
         }
 
-        public List<StudentDTO> ViewStudentRecordsByStandard(int std)
+        public List<StudentDTO> ViewStudentRecordsByStandard(int std, string year)
         {
-            var students = data.ViewStudentsByStandard(std);
+            var students = data.ViewStudentsByStandard(std, year);
             return students;
         }
     }

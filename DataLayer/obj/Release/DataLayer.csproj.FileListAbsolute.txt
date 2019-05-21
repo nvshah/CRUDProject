@@ -1,0 +1,11 @@
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\DataLayer\bin\Release\DataLayer.dll.config
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\DataLayer\bin\Release\DataLayer.dll
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\DataLayer\bin\Release\DataLayer.pdb
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\DataLayer\bin\Release\AutoMapper.dll
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\DataLayer\bin\Release\EntityFramework.dll
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\DataLayer\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\DataLayer\bin\Release\EntityFramework.xml
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\DataLayer\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\DataLayer\obj\Release\DataLayer.csprojResolveAssemblyReference.cache
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\DataLayer\obj\Release\DataLayer.dll
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\DataLayer\obj\Release\DataLayer.pdb

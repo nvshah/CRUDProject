@@ -34,7 +34,7 @@ namespace DataLayer
 
         public bool UpdateData(StudentDTO studentRecord)
         {
-            Student_2 updatedStudent = (Student_2)dbContext.Student_2.SingleOrDefault(student => student.Id == studentRecord.Id);
+            Student_2 updatedStudent = (Student_2)dbContext.Student_2.SingleOrDefault(student => student.Student_ID == studentRecord.Student_ID);
 
             if (updatedStudent == null)
             {
@@ -51,9 +51,9 @@ namespace DataLayer
 
         }
 
-        public bool DeleteData(int id)
+        public bool DeleteData(string id)
         {
-            Student_2 deletedStudent = (Student_2)dbContext.Student_2.SingleOrDefault(student => student.Id == id);
+            Student_2 deletedStudent = (Student_2)dbContext.Student_2.SingleOrDefault(student => student.Student_ID == id);
 
             if (deletedStudent == null)
             {

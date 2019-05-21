@@ -26,7 +26,5 @@ namespace DataLayer
         }
     
         public virtual DbSet<Student_2> Student_2 { get; set; }
-
-        public System.Data.Entity.DbSet<DataLayer.DTOs.StudentDTO> StudentDTOes { get; set; }
     }
 }

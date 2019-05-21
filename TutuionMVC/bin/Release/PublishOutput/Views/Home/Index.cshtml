@@ -1,0 +1,43 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/Login-Css/LoginPage.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="login-page">    
+        <div class="form">
+            <form class="register-form" action="javascript:void(0)">
+                <input required id="name" type="text" placeholder="Name" />
+                <input required id="password" type="text" placeholder="Password" />
+                <input required id="email" type="email" placeholder="email address" />
+                <button id="createBtn">create</button>
+                <p class="message">Already registered? <a href="javascript:;">Sign In</a></p>
+            </form>
+            <form class="login-form" action="javascript:void(0)">
+                <div class="errorMessage">
+                    Invalid Username or Password
+                </div>
+                <input required id="UserName" name="UserName" type="email" placeholder="username" />
+                <input required id="Password" name="Password" type="password" placeholder="password" />
+                <button id="loginBtn">login</button>
+                <p class="message">Not registered? <a href="javascript:;">Create an account</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="~/Scripts/js/Login.js"></script>
+</body>
+</html>

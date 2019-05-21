@@ -70,7 +70,7 @@
             <table id="tableStudents" class="table table-striped">
                 <thead>
                     <tr>
-                        <th style="display:none">@Html.DisplayNameFor(model => model.Id) </th>
+                        <th style="display:none">@Html.DisplayNameFor(model => model.Student_ID) </th>
                         <th>@Html.DisplayNameFor(model => model.Name)</th>
                         <th>@Html.DisplayNameFor(model => model.Standard)</th>
                         <th>@Html.DisplayNameFor(model => model.Phone)</th>
@@ -83,7 +83,7 @@
                     @foreach (var student in Model)
                     {
                         <tr>
-                            <td style="display:none" id="input_id">@Html.DisplayFor(model => student.Id)</td>
+                            <td style="display:none" id="input_id">@Html.DisplayFor(model => student.Student_ID)</td>
                             <td id="input_name">@Html.DisplayFor(model => student.Name)</td>
                             <td id="input_standard">@Html.DisplayFor(model => student.Standard)</td>
                             <td id="input_phone">@Html.DisplayFor(model => student.Phone)</td>

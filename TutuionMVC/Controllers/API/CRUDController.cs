@@ -112,11 +112,11 @@ namespace TutuionMVC.Controllers.API
         
         [HttpGet]
         [Route("Delete/{id}")]
-        public IHttpActionResult DeleteStudent([FromUri]int id)
+        public IHttpActionResult DeleteStudent([FromUri]string id)
         {
             try
             {
-                if (id != 0)
+                if (id != null)
                 {
                     var status = biz.DeleteStudentRecord(id);
                     return Ok(status);
@@ -147,12 +147,12 @@ namespace TutuionMVC.Controllers.API
         }
 
         [HttpGet]
-        [Route("ViewByStandard/{std}")]
-        public IHttpActionResult GetStudentsByStandard([FromUri]int std)
+        [Route("ViewByStandard")]
+        public IHttpActionResult GetStudentsByStandard([FromUri]int std, [FromUri]string year)
         {
             try
             {
-                return Ok(biz.ViewStudentRecordsByStandard(std));
+                return Ok(biz.ViewStudentRecordsByStandard(std, year));
             }
             catch
             {

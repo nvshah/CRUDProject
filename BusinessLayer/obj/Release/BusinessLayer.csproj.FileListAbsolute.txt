@@ -1,0 +1,11 @@
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\BusinessLayer\bin\Release\BusinessLayer.dll
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\BusinessLayer\bin\Release\BusinessLayer.pdb
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\BusinessLayer\bin\Release\DataLayer.dll
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\BusinessLayer\bin\Release\EntityFramework.dll
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\BusinessLayer\bin\Release\AutoMapper.dll
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\BusinessLayer\bin\Release\DataLayer.pdb
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\BusinessLayer\bin\Release\DataLayer.dll.config
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\BusinessLayer\bin\Release\EntityFramework.xml
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\BusinessLayer\obj\Release\BusinessLayer.csprojResolveAssemblyReference.cache
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\BusinessLayer\obj\Release\BusinessLayer.dll
+C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\BusinessLayer\obj\Release\BusinessLayer.pdb

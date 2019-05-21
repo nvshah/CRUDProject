@@ -15,7 +15,7 @@ namespace DataLayer
 
     public partial class Student_2
     {
-        public int Id { get; set; }
+        public string Student_ID { get; set; }
         public string Name { get; set; }
         public int Standard { get; set; }
         public string Phone { get; set; }
@@ -23,5 +23,6 @@ namespace DataLayer
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> Dob { get; set; }
         public string Medium { get; set; }
+        public string Year { get; set; }
     }
 }
