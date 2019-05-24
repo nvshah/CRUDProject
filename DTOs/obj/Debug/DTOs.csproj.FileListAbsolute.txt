@@ -1,0 +1,5 @@
+E:\Nipun (127)\GitFolder\CRUD\DTOs\bin\Debug\DTOs.dll
+E:\Nipun (127)\GitFolder\CRUD\DTOs\bin\Debug\DTOs.pdb
+E:\Nipun (127)\GitFolder\CRUD\DTOs\obj\Debug\DTOs.csprojResolveAssemblyReference.cache
+E:\Nipun (127)\GitFolder\CRUD\DTOs\obj\Debug\DTOs.dll
+E:\Nipun (127)\GitFolder\CRUD\DTOs\obj\Debug\DTOs.pdb

@@ -440,6 +440,10 @@
       <Project>{370216a1-434f-4f03-9e55-b3eb9b6a0134}</Project>
       <Name>DataLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DTOs\DTOs.csproj">
+      <Project>{eaae4e66-7e95-447e-8dcf-9dfc782d65a9}</Project>
+      <Name>DTOs</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

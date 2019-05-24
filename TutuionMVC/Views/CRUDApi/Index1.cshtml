@@ -14,15 +14,85 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <meta charset="utf-8">
     <style>
+        /*body {
+            background: #F5F5F5;
+        }*/
+        /*Display number form Each Row*/
+        table {
+            counter-reset: rowNumber;
+        }
+
+        table tbody tr {
+            counter-increment: rowNumber;
+        }
+
+        table tbody tr #no:before{
+            content:counter(rowNumber);
+        }
+
+        table tbody tr #no.without-before-element:before {
+            content: none;
+        }
+
+
+
         .tableRecords {
             /*display: none;*/
             margin-top: 50px;
+            /*display:block;*/
+            height:500px;
+            width:100%;
+            overflow:auto;
         }
 
+        #tableStudents{
+            /*table-layout:fixed;*/
+            width:100%;
+            border-collapse:collapse;
+            table-layout:fixed;
+            white-space:nowrap;
+        }
+
+        /*#tableStudents thead,   
+        #tableStudents tbody{
+            display:block;
+        }*/
+        thead th{
+            background:#d0efef;
+            position:sticky;
+            top:0;
+        }
+       
+        /*thead.fixedHeader tr{
+            position: relative;
+        }*/
+       
+        /*tbody.scrollContent{
+            height: 270px;
+            overflow-y:scroll;
+            width:100%;
+        }*/
+
+       
+
+            
+
+
+        /*.tableRecords tbody{
+            overflow-y:scroll;
+        }*/
+        /*.tableRecords tbody{
+            overflow:auto;
+            max-height:10px;
+        }*/
+        /*.tab{
+            overflow-y: scroll;
+            height:200px;
+            
+        }*/
         /*#txtStd {
             width: 150px;
         }*/
-
         .input-operation {
             display: flex;
             /*justify-content: space-between;*/
@@ -57,6 +127,10 @@
         }
 
         .input-operation > div:last-child{
+            margin-left:15px;
+        }
+
+        #ViewAll{
             margin-left:auto;
         }
     </style>
@@ -84,7 +158,10 @@
             <input id="txtStd" type="number" min=1 max=12 class="form-control item" placeholder="Std" name="Year" />
             <input id="txtYear" type="text" class="form-control item" placeholder="Year" name="Year" />
             <div class="item">
-                <button id="viewRecordsBtn" class="btn btn-default"><i class="glyphicon glyphicon-check"></i>View Records</button>
+                <button id="viewRecordsBtn" class="btn btn-dark"><i class="glyphicon glyphicon-check"></i>View Records</button>
+            </div>
+            <div id="ViewAll">
+                <button id="viewAllRecordsBtn" class="btn btn-danger"><i class="glyphicon glyphicon-check"></i>View All</button>
             </div>
             <div>
                 <button id="AddRecord" class="btn btn-primary">
@@ -101,29 +178,31 @@
             </div>
         </div>
         <div class="tableRecords">
-            <table id="tableStudents" class="table table-striped">
-                <thead>
+            <table id="tableStudents" class="table table-hover table-responsive">
+                <thead class="fixedHeader">
                     <tr>
                         <th style="display:none">Id</th>
-                        <th>Name</th>
-                        <th>Standard</th>
-                        <th>Phone</th>
-                        <th>Dob</th>
-                        <th>Medium</th>
-                        <th>Year</th>
-                        <th></th>
+                        <th width="5%">#</th>
+                        <th width="25%">Name</th>
+                        <th width="10%">Standard</th>
+                        <th width="10%">Phone</th>
+                        <th width="10%">Dob</th>
+                        <th width="10%">Medium</th>
+                        <th width="10%">Year</th>
+                        <th width="10%">&nbsp;</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="scrollContent">
                     <tr>
                         <td style="display:none" id="input_id"><span>&nbsp;</span></td>
-                        <td id="input_name" width="30%"><span>&nbsp;</span></td>
-                        <td id="input_standard"><span>&nbsp;</span></td>
-                        <td id="input_phone"><span>&nbsp;</span></td>
-                        <td id="input_dob"><span>&nbsp;</span></td>
-                        <td id="input_medium"><span>&nbsp;</span></td>
-                        <td id="input_year"><span>&nbsp;</span></td>
-                        <td>
+                        <td id="no"></td>
+                        <td id="input_name"><span>&nbsp;</span></td>
+                        <td id="input_standard" ><span>&nbsp;</span></td>
+                        <td id="input_phone" width="10%"><span>&nbsp;</span></td>
+                        <td id="input_dob" width="10%"><span>&nbsp;</span></td>
+                        <td id="input_medium" width="10%"><span>&nbsp;</span></td>
+                        <td id="input_year" width="10%"><span>&nbsp;</span></td>
+                        <td >
                             @*<@Html.ActionLink("Edit", "Edit", "CRUDApi",new { _id = student.Id },null) |*@
                             <a class="Edit btn-sm btn-primary" href="javascript:;">Edit</a>
                             <a class="Delete btn-sm btn-success" href="javascript:;">Delete</a>
@@ -168,36 +247,51 @@
             // Hide Edit and Delete Button if No Row is Present 
             if ($("#tableStudents tr").length <= 2)
             {
-                var row = $("#tableStudents tr:last-child");
+                var row = $("#tableStudents tbody tr:last-child");
                 if (row.find("span").html() == '&nbsp;') {
                     row.find(".Edit").hide();
                     row.find(".Delete").hide();
+                    row.find("#no").addClass('without-before-element');
+                    //row.css('visibiblity', 'hidden');
                 }
+                
             }
 
             // Navigation to Page : 2 - Back- Forward (History Navigation)
             //                      1 - Reload   ( Location.Reload())
             //                      0 - Navigate ( link, form submission, etc)
+           
             if (performance.navigation.type == 2 || performance.navigation.type == 1 || performance.navigation.type == 0) {
 
                 var std = localStorage.getItem("std");
                 var year = localStorage.getItem("year");
 
+                alert(std);
+                alert(year);
+
                 // get values from stored localStorage
-                if (std != 0) {
+                if (std != '0' && std != '-1') {
                     $('#txtStd').val(std);
                 }
-                if (year != null)
-                {
+                if (year != '' && year != '-1') {
                     $('#txtYear').val(year);
                 }
 
-                //List Down All Entries if Std & Year value is Present
-                //if (std > 0 && std < 13 ) 
-                {
-                    PopulateTable(std, year);
+                ////List Down All Entries if Std & Year value is Present
+                //if ((((std == '0') && year) || (std > 0 && std < 13)) && ((!year && (std!='0')) || year.match(/^\d{4}$/) != null)) 
+                //{
+                //    PopulateTable(std, year);
+                //}
+                if (std == '-1' && year == '-1') {
+                    PopulateTable(0, '');
+                }
+                else {
+                    if ((((std == '0') && year) || std > 0) && ((!year && (std != '0')) || year)) {
+                        PopulateTable(std, year);
+                    }
                 }
             }
+            
 
         });
 
@@ -236,15 +330,15 @@
             //alert(values);
 
             var student = {};
-            student.Id = values[0];
-            student.Name = values[1];
-            student.Standard = values[2];
-            student.Phone = values[3];
-            student.Dob = values[4];
+            student.Student_ID = values[0];
+            student.Name = values[2];
+            student.Standard = values[3];
+            student.Phone = values[4];
+            student.Dob = values[5];
             var datearr = student.Dob.split('-');
             student.Dob = datearr[1] + '-' + datearr[0] + '-' + datearr[2];
-            student.Medium = values[5];
-            student.Year = values[6];
+            student.Medium = values[6];
+            student.Year = values[7];
 
             //console.log(student);
 
@@ -356,6 +450,8 @@
                 else
                 {
                     localStorage.setItem("std", std_val);
+                    localStorage.setItem("year", '');
+
                     PopulateTable(std_val, "");
                 }
             }
@@ -368,6 +464,7 @@
                 else
                 {
                     localStorage.setItem("year", year_val);
+                    localStorage.setItem("std", '0');
                     PopulateTable(0, year_val);
                 }
             }
@@ -397,6 +494,18 @@
             $(this).prop('disabled', false);
         });
 
+        //View All Records Button Event handler
+        $('#viewAllRecordsBtn').on('click', function () {
+            $(this).prop('disabled', true);
+
+            localStorage.setItem('std', '-1');
+            localStorage.setItem('year', '-1');
+
+            PopulateTable(0, '');
+            $(this).prop('disabled', false);
+
+        })
+
         $('#txtStd').on('focus', function () {
             //alert($(this).css('borderColor'))
             if ($(this).css('borderColor') == "rgb(255, 0, 0)")
@@ -409,7 +518,9 @@
             $('#stdRequirement').css('visibility', 'hidden');
         });
         $('#txtYear').on('focus', function () {
-            if ($(this).css('borderColor') == "rgb(255, 0, 0)"){
+
+            if ($(this).css('borderColor') == "rgb(255, 0, 0)") {
+                
                 $('#yearRequirement').css('visibility', 'visible');
             }
         });
@@ -420,6 +531,10 @@
 
         //Append Row to Last of table
         function AppendRow(row, Id, Name, Standard, Phone, Dob, Medium, Year) {
+
+            ////Bind Number #
+            //$("#no", row).find("span").html(no);
+
             //Bind StudentId.
             $("#input_id", row).find("span").html(Id);
 
@@ -448,9 +563,7 @@
         }
 
         //Add event handler.
-        function PopulateTable(std, year) {
-
-            
+        function PopulateTable(std, year) { 
             //alert(std);
             var urlForViewByStd = "/api/CRUD/ViewByStandard?std=" + std + "&year=" + year;
             {
@@ -485,14 +598,17 @@
                         }
                         else
                         {
+                            row.find("#no").removeClass('without-before-element');
+                            //let no = 1;
                             //Append Records From Json Array recieve from call
                             $.each(data, function () {
                                 //alert(this.Id);
                                 //var date = this.Dob.substring(0, 10);
                                 var date = moment(this.Dob).format("DD-MM-YYYY") //"2013-03-10"
                                 //alert(date);
-                                AppendRow(row, this.Id, this.Name, this.Standard, this.Phone, date, this.Medium, this.Year);
+                                AppendRow(row, this.Student_ID, this.Name, this.Standard, this.Phone, date, this.Medium, this.Year);
                                 row = row.clone();
+                                //no = no + 1;
                             });
                         }
                         $('.loading').css('visibility', 'hidden');
@@ -500,7 +616,8 @@
                     Error: function (request, message, error) {
                         handleException(request, message, error);
                         $('.loading').css('visibility', 'hidden');
-                    }
+                    },
+                    timeout: 10000
                 });
             }
 

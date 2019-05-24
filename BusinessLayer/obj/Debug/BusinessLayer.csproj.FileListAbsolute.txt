@@ -9,3 +9,14 @@ C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\BusinessLaye
 C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
 C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\BusinessLayer\obj\Debug\BusinessLayer.dll
 C:\Users\nipun.shah\Documents\Visual Studio 2017\Projects\DataLayer\BusinessLayer\obj\Debug\BusinessLayer.pdb
+E:\Nipun (127)\GitFolder\CRUD\BusinessLayer\bin\Debug\BusinessLayer.dll
+E:\Nipun (127)\GitFolder\CRUD\BusinessLayer\bin\Debug\BusinessLayer.pdb
+E:\Nipun (127)\GitFolder\CRUD\BusinessLayer\bin\Debug\DataLayer.dll
+E:\Nipun (127)\GitFolder\CRUD\BusinessLayer\bin\Debug\EntityFramework.dll
+E:\Nipun (127)\GitFolder\CRUD\BusinessLayer\bin\Debug\AutoMapper.dll
+E:\Nipun (127)\GitFolder\CRUD\BusinessLayer\bin\Debug\DataLayer.pdb
+E:\Nipun (127)\GitFolder\CRUD\BusinessLayer\bin\Debug\DataLayer.dll.config
+E:\Nipun (127)\GitFolder\CRUD\BusinessLayer\bin\Debug\EntityFramework.xml
+E:\Nipun (127)\GitFolder\CRUD\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
+E:\Nipun (127)\GitFolder\CRUD\BusinessLayer\obj\Debug\BusinessLayer.dll
+E:\Nipun (127)\GitFolder\CRUD\BusinessLayer\obj\Debug\BusinessLayer.pdb

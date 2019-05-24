@@ -6,7 +6,8 @@
     /*==================================================================
     [ Validate ]*/
     var input = $('.validate-input .input100');
-    var prev_std = 0;
+    var prev_std = '0';
+    var prev_year = '';
 
     //Added
     var oldName = $('#input_name').val();
@@ -52,6 +53,7 @@
     });
 
     $("#updateBtn").click(function () {
+        $(this).prop('disabled', true);
 
         var check = true;
 
@@ -182,6 +184,7 @@
                 if (success == true) {
                     alert("Record Inserted Successfully");
                     prev_std = _student.Standard;
+                    prev_year = _student.Year;
 
                     name.val("");
                     standard.val("");
@@ -202,11 +205,12 @@
 
     //Back to List Click Handler
     $('.BtoL').on('click', function () {
-        window.location.href = "/CRUDApi/Index1"
-        if (prev_std != 0)
-        {
+        if (prev_std != '0' && prev_year != '') {
             localStorage.setItem("std", prev_std);
+            localStorage.setItem("year", prev_year);
         }
+        window.location.href = "/CRUDApi/Index1"
+       
     });
 
     //Update Record Handler
@@ -240,7 +244,8 @@
             success: function (success) {
                 if (success == true) {
                     alert("Record Updated Successfully");
-                    prev_std = _student.Standard;
+                    //prev_std = _student.Standard;
+                    //prev_year = _student.Year; 
 
                     name.val("");
                     standard.val("");
@@ -252,7 +257,7 @@
                     //redirect to Index Page After Updation
                     window.location.href = "/CRUDApi/Index1";
                     if (prev_std != 0) {
-                        localStorage.setItem("std", prev_std);
+                        //localStorage.setItem("std", prev_std);
                     }
                 }
                 else
@@ -262,6 +267,9 @@
             },
             error: function (request, message, error) {
                 handleException(request, message, error);
+            },
+            complete: function () {
+                $('#updateBtn').prop('disabled', false);
             }
         });
 
