@@ -411,6 +411,7 @@
     <Content Include="Views\CRUDApi\Edit.cshtml" />
     <Content Include="Views\CRUDApi\Index.cshtml" />
     <Content Include="Views\CRUDApi\Index1.cshtml" />
+    <Content Include="Views\CRUDApi\AddMark.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

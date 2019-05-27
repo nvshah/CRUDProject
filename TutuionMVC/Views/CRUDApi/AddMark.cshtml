@@ -1,0 +1,108 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddMark</title>
+        
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+    <style>
+                
+            /*table {
+                counter-reset: rowNumber;
+            }
+
+            table tbody tr {
+                counter-increment: rowNumber;
+            }
+
+            table tbody tr #no:before {
+                content: counter(rowNumber);
+            }
+
+            table tbody tr #no.without-before-element:before {
+                content: none;
+            }*/
+
+            .input-operation {
+                display: flex;
+                /*justify-content: space-between;*/
+            }
+
+            .item {
+                width: 100px;
+                margin: 0 10px;
+            }
+
+            .requirements {
+                /*margin-top: 5px;*/
+                margin: 5px 10px;
+                color: #999;
+                min-width: 100px;
+                /*max-height: 200px;*/
+                /*transition: 0.28s;*/
+                overflow: hidden;
+                color: red;
+                font-style: italic;
+                font-size: 12px;
+                visibility: hidden;
+            }
+
+            .loading {
+                visibility: hidden;
+            }
+
+            .input-operation > div:last-child {
+                margin-left: auto;
+            }
+
+    </style>
+</head>
+<body>
+    <h2>Marks</h2>
+    <a href="/Home/Display?page=Option.html"> Back </a>
+
+    <div class="container">
+        <div class="loading" style="text-align:center">
+            <img src="~/Content/Gifs/ajax-loader.gif" />
+        </div>
+        <div class="input-operation">
+            <input id="txtStd" type="number" min=1 max=12 class="form-control item" placeholder="Std" name="Year" />
+            <input id="txtYear" type="text" class="form-control item" placeholder="Year" name="Year" />
+            <div class="item">
+                <button id="viewRecordsBtn" class="btn btn-dark"><i class="glyphicon glyphicon-check"></i></button>
+            </div>
+            <div>
+                <button id="AddRecord" class="btn btn-primary">
+                    Save
+                </button>
+            </div>
+        </div>
+        <div style="display:flex">
+            <div id="stdRequirement" class="requirements">
+                Enter Std in (1,12)
+            </div>
+            <div id="yearRequirement" class="requirements">
+                year is invalid
+            </div>
+        </div>
+        <div>
+            
+        </div>
+    </div>
+
+    <script>
+
+    </script>
+</body>
+
+
+</html>

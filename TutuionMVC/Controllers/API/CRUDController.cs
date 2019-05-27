@@ -160,5 +160,19 @@ namespace TutuionMVC.Controllers.API
                 return NotFound();
             }
         }
+
+        [HttpPost]
+        [Route("AddMarks")]
+        public IHttpActionResult AddMarksOfStudent([FromBody]MarksDTO studentMarksById)
+        {
+            try
+            {
+                return Ok();
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }   
     }
 }

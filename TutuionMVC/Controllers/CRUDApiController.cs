@@ -52,6 +52,13 @@ namespace TutuionMVC.Controllers
             return View();
         }
 
+        [HttpGet]
+        [Route("CRUDApi/AddMark")]
+        public ActionResult AddMark()
+        {
+            return View();
+        }
+
 
         //GET: CRUDApi/Create
         public ActionResult Create()
