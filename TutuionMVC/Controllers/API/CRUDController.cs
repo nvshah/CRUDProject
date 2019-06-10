@@ -25,7 +25,7 @@ namespace TutuionMVC.Controllers.API
 
         [HttpPost]
         [Route("Insert")]
-        public IHttpActionResult InsertStudent([FromBody]StudentDTO studentRecord)
+        public IHttpActionResult InsertStudent(StudentDTO studentRecord)
         {
             try
             {
@@ -47,7 +47,7 @@ namespace TutuionMVC.Controllers.API
 
         [HttpPost]
         [Route("InsertUser")]
-        public IHttpActionResult InsertUserRecord([FromBody]UserRecord userRecord)
+        public IHttpActionResult InsertUserRecord(UserRecord userRecord)
         {
             try
             {
@@ -69,7 +69,7 @@ namespace TutuionMVC.Controllers.API
 
         [HttpPost]
         [Route("AuthenticateUser")]
-        public IHttpActionResult AuthenticateUserRecord([FromBody]object userValidateRecord)
+        public IHttpActionResult AuthenticateUserRecord(object userValidateRecord)
         {
             try
             {
@@ -163,16 +163,30 @@ namespace TutuionMVC.Controllers.API
 
         [HttpPost]
         [Route("AddMarks")]
-        public IHttpActionResult AddMarksOfStudent([FromBody]MarksDTO studentMarksById)
+        public IHttpActionResult AddMarksByStudentId([FromBody]JToken studentMarks)
         {
             try
             {
-                return Ok();
+                return Ok(biz.AddStudentMarks(studentMarks));   
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return BadRequest(e.Message);
             }
-        }   
+        }
+
+        [HttpGet]
+        [Route("GetMarks")]
+        public IHttpActionResult GetAllStudentMarks([FromUri]int std, [FromUri]string year)
+        {
+            try
+            {
+                return Ok(biz.fetchAllStudentsMarks(std, year));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
     }
 }

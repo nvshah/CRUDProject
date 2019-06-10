@@ -94,13 +94,89 @@
                 year is invalid
             </div>
         </div>
-        <div>
-            
+        <div class="container">
+            <table id="tableMarks" class="table table-bordered">
+                <thead>
+                    <tr class="GroupHeading">
+                        <th colspan="2">Student</th>
+                        <th>Marks</th>
+                    </tr>
+                    <tr class="SubGroupHeading">
+                        <th class="col-sm-1">Id</th>
+                        <th class="col-sm-3">Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
         </div>
     </div>
 
-    <script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
+    <script type="text/javascript"
+            src="http://code.jquery.com/jquery-latest.js">
+    </script>
 
+    <script>
+        //$(function () {
+        //    let urlForGetMarks = "/api/CRUD/GetMarks?std=" + "9" + "&year=" + "2018";
+        //    $.ajax({
+        //        type: "GET",
+        //        url: urlForGetMarks,
+        //        dataType: "json",
+        //        success: function (data)
+        //        {
+        //            alert('Yuhuuuu');
+        //        }
+
+        //    })
+        //}
+        //);
+        $("#viewRecordsBtn").on('click', function () {
+            var std = $('#txtStd').val();
+            var year = $('#txtYear').val();
+            let urlForGetMarks = "/api/CRUD/GetMarks?std=" + std + "&year=" + year;
+            $.ajax({
+                type: "GET",
+                url: urlForGetMarks,
+                dataType: "json",
+                success: function (data) {
+                    //alert('Yuhuuuu');
+                    createTable(data);
+                }
+            });
+        });
+
+        function createTable(data)
+        {
+            var NumberOfSubjects = new Number(Object.keys(data[0].Marks).length);
+            alert(NumberOfSubjects);
+
+            //Remove Subjects Heading
+            $('#tableMarks thead .SubGroupHeading').find('th:gt(1)').remove();
+            //var NumberOfSubjects = 
+            $('#tableMarks .GroupHeading th:last-child').attr('colspan', NumberOfSubjects);
+            $.each(data[0].Marks, function (k) {
+                $('<th>' + k + '</th>').appendTo('.SubGroupHeading');
+            });
+
+            //Remove data of Rows Of Previous Standard
+            $('#tableMarks tbody').find('tr').remove();
+
+            $.each(data, function () {
+                var row = $('<tr></tr>').appendTo('tbody');
+                $('<td></td>').text(this.StudentId).appendTo(row);
+                $('<td></td>').text(this.StudentName).appendTo(row);
+                $.each(this.Marks, function (k, v) {
+                    $('<td></td>').text(v==255 ? 'N.A' : v).appendTo(row);
+                });
+                //$('<td></td>')
+            });
+                        //var headRow = $('<tr></tr>').appendTo('#tableMarks thead');
+                
+        }
     </script>
 </body>
 

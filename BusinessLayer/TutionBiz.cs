@@ -1,5 +1,7 @@
 ﻿using DataLayer;
 using DataLayer.DTOs;
+using DTOs;
+using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 
 namespace BusinessLayer
@@ -12,6 +14,7 @@ namespace BusinessLayer
         {
             data = new TutionData();
         }
+
         public bool ValidateAdminByUsernameAndPassword(dynamic userLoginDetails)
         {
             var userRecord = data.fetchRecord(userLoginDetails);
@@ -59,6 +62,16 @@ namespace BusinessLayer
         {
             var students = data.ViewStudentsByStandard(std, year);
             return students;
+        }
+
+        public bool AddStudentMarks(JToken marks)
+        {
+            return data.AddMarks(marks);
+        }
+
+        public List<MarksDTO> fetchAllStudentsMarks(int std, string year)
+        {
+            return data.fetchMarks(std, year);
         }
     }
 }

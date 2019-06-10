@@ -1,6 +1,9 @@
 ﻿using DataLayer.DTOs;
+using DTOs;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 
@@ -100,7 +103,7 @@ namespace DataLayer
             //{
             //    connection.Open();
 
-            //    using (SqlCommand cmd = new SqlCommand(sql, connection))
+            //    using (SqlCommand cm  d = new SqlCommand(sql, connection))
             //    {
             //        cmd.Parameters.AddWithValue("@Year", studentRecord.Year);
             //        cmd.Parameters.AddWithValue("@Standard", studentRecord.Standard);
@@ -238,6 +241,111 @@ namespace DataLayer
             }
             
             return students;
+        }
+
+        //public bool AddStudentMarks(MarksDTO marks)
+        //{
+        //    try
+        //    {
+        //        connection.Open();
+        //        SqlCommand command = new SqlCommand("AddStudentMarks", connection);
+        //        command.CommandType = CommandType.StoredProcedure;
+        //        command.Parameters.AddWithValue("StudentId", marks.StudentId);
+        //        command.Parameters.AddWithValue("Marks", DataHelper.CreateMarksTable(marks.Marks));
+        //        var result = (int)command.ExecuteScalar();
+        //        if (bool.Parse(result.ToString()))
+        //            return true;
+        //    }
+        //    finally
+        //    {
+        //        connection.Close();
+        //    }
+        //    return false;
+        //}
+
+        public bool AddMarks(JToken Marks)
+        {
+            //List<string> temp = new List<string>();
+            //foreach(JObject item in Marks)
+            //{
+            //    temp.Add(item["StudentId"].ToString());
+            //    item.GetValue("Marks").ToObject<Dictionary<string, int>>();
+            //}
+            int std = int.Parse(Marks["BatchIdentifier"].ToString().Substring(2,2));
+            var marks = Marks["marks"];
+            if(marks != null)
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand("AddStudentMarks", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("Standard", std);
+                        command.Parameters.AddWithValue("Marks", DataHelper.CreateStudentMarksTable(marks));
+                        var result = command.ExecuteScalar();
+                        if (bool.Parse(result.ToString()))
+                            return true;
+                    }
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            
+            return false;
+        }
+
+        public List<MarksDTO> fetchMarks(int std, string year)
+        {
+            //var marksTableName = std > 10 ? "[dbo].[HSTest1]" : "[dbo].[BHSTest1]";
+            //var studentTableName = "Student_2";
+            //var batchIdentifier = year.Substring(year.Length - 2, 2) + std.ToString("00") + "%";
+            
+
+            ///Query To Get ISNULL Check On All Column In Table 
+            //var query = $"DECLARE @query VARCHAR(100) " +
+            //                  $" SET @query = 'SELECT' +" +
+            //                  $" STUFF((SELECT  ', ISNULL(' + COLUMN_NAME + ', 255) as ' + COLUMN_NAME" +
+            //                  $" FROM INFORMATION_SCHEMA.COLUMNS" +
+            //                  $" WHERE TABLE_NAME = '{marksTableName}'" +
+            //                  $" for xml path('')), 1, 1, '') +" +
+            //                  $" ' FROM HSTest1';" +
+            //                  $" EXEC(@query)";
+
+            var fetchedMarks = new List<MarksDTO>();
+            try
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("FetchStudentMarks", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@standard", std);
+                    command.Parameters.AddWithValue("@year", year);
+                    //command.Parameters.AddWithValue("@StudentTableName", "Student_2");
+                    //command.Parameters.AddWithValue("@BatchIdentifier", year.Substring(year.Length - 2, 2) + std.ToString("00") + "%");
+                    using (var reader = command.ExecuteReader())
+                    {
+                        if (!reader.HasRows)
+                        {
+                            fetchedMarks = null;
+                        }
+                        else
+                        {
+                            while (reader.Read())
+                            {
+                                fetchedMarks.Add(DataHelper.GetStudentMarks(reader));
+                            }
+                        }
+                    }
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return fetchedMarks;
         }
 
 

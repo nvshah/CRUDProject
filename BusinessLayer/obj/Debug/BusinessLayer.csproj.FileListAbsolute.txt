@@ -20,3 +20,7 @@ E:\Nipun (127)\GitFolder\CRUD\BusinessLayer\bin\Debug\EntityFramework.xml
 E:\Nipun (127)\GitFolder\CRUD\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
 E:\Nipun (127)\GitFolder\CRUD\BusinessLayer\obj\Debug\BusinessLayer.dll
 E:\Nipun (127)\GitFolder\CRUD\BusinessLayer\obj\Debug\BusinessLayer.pdb
+E:\Nipun (127)\GitFolder\CRUD\BusinessLayer\bin\Debug\DTOs.dll
+E:\Nipun (127)\GitFolder\CRUD\BusinessLayer\bin\Debug\DTOs.pdb
+E:\Nipun (127)\GitFolder\CRUD\BusinessLayer\bin\Debug\Newtonsoft.Json.dll
+E:\Nipun (127)\GitFolder\CRUD\BusinessLayer\bin\Debug\Newtonsoft.Json.xml
