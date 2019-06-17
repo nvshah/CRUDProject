@@ -23,3 +23,17 @@ E:\Nipun (127)\GitFolder\CRUD\DataLayer\obj\Debug\DataLayer.dll
 E:\Nipun (127)\GitFolder\CRUD\DataLayer\obj\Debug\DataLayer.pdb
 E:\Nipun (127)\GitFolder\CRUD\DataLayer\bin\Debug\Newtonsoft.Json.dll
 E:\Nipun (127)\GitFolder\CRUD\DataLayer\bin\Debug\Newtonsoft.Json.xml
+E:\Nipun (127)\CRUDProject\DataLayer\bin\Debug\DataLayer.dll.config
+E:\Nipun (127)\CRUDProject\DataLayer\bin\Debug\DataLayer.dll
+E:\Nipun (127)\CRUDProject\DataLayer\bin\Debug\DataLayer.pdb
+E:\Nipun (127)\CRUDProject\DataLayer\bin\Debug\DTOs.dll
+E:\Nipun (127)\CRUDProject\DataLayer\bin\Debug\EntityFramework.dll
+E:\Nipun (127)\CRUDProject\DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+E:\Nipun (127)\CRUDProject\DataLayer\bin\Debug\Newtonsoft.Json.dll
+E:\Nipun (127)\CRUDProject\DataLayer\bin\Debug\DTOs.pdb
+E:\Nipun (127)\CRUDProject\DataLayer\bin\Debug\EntityFramework.xml
+E:\Nipun (127)\CRUDProject\DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+E:\Nipun (127)\CRUDProject\DataLayer\bin\Debug\Newtonsoft.Json.xml
+E:\Nipun (127)\CRUDProject\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
+E:\Nipun (127)\CRUDProject\DataLayer\obj\Debug\DataLayer.dll
+E:\Nipun (127)\CRUDProject\DataLayer\obj\Debug\DataLayer.pdb

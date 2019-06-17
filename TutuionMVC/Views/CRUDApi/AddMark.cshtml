@@ -64,6 +64,11 @@
                 margin-left: auto;
             }
 
+            .commonEditing{
+                padding:10px;
+                width:30px;
+            }
+
     </style>
 </head>
 <body>
@@ -170,7 +175,9 @@
                 $('<td></td>').text(this.StudentId).appendTo(row);
                 $('<td></td>').text(this.StudentName).appendTo(row);
                 $.each(this.Marks, function (k, v) {
-                    $('<td></td>').text(v==255 ? 'N.A' : v).appendTo(row);
+                    //col = $('<td></td>').text(v == 255 ? 'N.A' : v).appendTo(row);
+                    var col = $('<td></td>').appendTo(row);
+                    $('<span></span>').attr({ contenteditable: 'true', class: "commonEditing" }).html(v == 255 ? 'N.A' : v).appendTo(col);
                 });
                 //$('<td></td>')
             });
